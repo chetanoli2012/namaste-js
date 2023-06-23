@@ -12,7 +12,7 @@ const api = {
 // api.proceedToPayment();
 // api.showOrderSummay();
 
-api.createOder(function () {
+api.createOder(cart, function () {
   api.proceedToPayment(function () {
     api.showOrderSummay(function () {
       api.updateWallet();
@@ -21,3 +21,10 @@ api.createOder(function () {
 });
 
 // Too many apis to be called in order creates callback hell
+
+// INVERSION OF CONTROL - We lost control over our code using too many callbacks
+
+api.createOder(cart, function () {
+  api.proceedToPayment();
+  // Here we are giving the control of proceedToPayment to createOrder API
+});
