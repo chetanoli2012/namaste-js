@@ -5,21 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      div {
+      /* CSS for event capturing | trickling and event bubbling */
+      /* div {
         max-width: 500px;
         max-height: 500px;
         padding: 30px;
         border: 1px solid black;
-      }
+      } */
     </style>
   </head>
   <body>
     <h1>Welcome to practice</h1>
 
-    <div id="grandparent">
+    <!-- HTML for event capturing | trickling and event bubbling -->
+    <!-- <div id="grandparent">
       <div id="parent">
         <div id="child"></div>
       </div>
+    </div> -->
+
+    <!-- HTML for event delegation -->
+
+    <div>
+      <ul id="category">
+        <li id="laptops">Laptops</li>
+        <li id="cameras">Cameras</li>
+        <li id="shoes">Shoes</li>
+      </ul>
     </div>
 
     <!-- <script src="/15-june-2023.js"></script> -->
@@ -34,6 +46,7 @@
     <!-- <script src="/call-apply-bind.js"></script> -->
     <!-- <script src="/polyfill-bind.js"></script> -->
     <!-- <script src="/functing-currying.js"></script> -->
-    <script src="/event-bubbling-and-capturing.js"></script>
+    <!-- <script src="/event-bubbling-and-capturing.js"></script> -->
+    <script src="/event-delegation.js"></script>
   </body>
 </html>
