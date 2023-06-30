@@ -37,3 +37,5 @@ setTimeoutPolyfill(function () {
 }, 1000);
 
 console.log("end");
+
+export default createTimeout;
