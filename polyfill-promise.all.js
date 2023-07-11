@@ -8,24 +8,27 @@ const dummyAPI = function (delay) {
 
 const tasksArray = [dummyAPI(1000), dummyAPI(3000), dummyAPI(5000)];
 
-const promisePolyfill = function (tasksArray) {
+function promisePolyfill(tasksArray) {
   const output = [];
-
-  return new Promise(function (resolve, reject) {
-    tasksArray.forEach(function (element, index) {
-      element
-        .then(function (data) {
-          output.push(data);
-          if (index === tasksArray.length - 1) {
-            return resolve(output);
+  let currentIteration = 0;
+  const promise = new Promise(function (resolve, reject) {
+    tasksArray.forEach((task, idx) => {
+      Promise.resolve(task)
+        .then(function (taskData) {
+          output[idx] = taskData;
+          currentIteration++;
+          console.log(idx);
+          if (currentIteration === tasksArray.length) {
+            resolve(output);
           }
         })
         .catch(function (err) {
-          return reject(err);
+          reject(err);
         });
     });
   });
-};
+  return promise;
+}
 
 promisePolyfill(tasksArray)
   .then(function (data) {
